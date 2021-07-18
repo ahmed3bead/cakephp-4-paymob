@@ -1,4 +1,5 @@
-# cakephp-4-paymob
+# CAKEPHP 4 Paymob
+
 # paymob
 paymob payment gateway https://paymob.com
 
@@ -35,7 +36,8 @@ Or, you can load the plugin using the shell command
 
 return [
     'CakephpPaymob' => [
-        'apiKey' => '{your-api-key-here-from-your-account}'
+        'apiKey' => '{your-api-key-here-from-your-account}',
+        'card_payments_integration_id' => '{card_payments_integration_id}',
     ]
 ];
 
