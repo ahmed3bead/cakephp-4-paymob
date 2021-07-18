@@ -36,8 +36,8 @@ Or, you can load the plugin using the shell command
 
 return [
     'CakephpPaymob' => [
-        'apiKey' => '{your-api-key-here-from-your-account}',
-        'card_payments_integration_id' => '{card_payments_integration_id}',
+        'apiKey' => '{your-api-key-here-from-your-account}',// From https://accept.paymob.com/portal2/en/settings
+        'card_payments_iframes_url' => '{card_payments_iframes_url}',// From https://accept.paymob.com/portal2/en/iframes
     ]
 ];
 
