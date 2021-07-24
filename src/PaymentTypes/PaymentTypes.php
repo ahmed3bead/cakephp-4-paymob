@@ -4,6 +4,12 @@ declare(strict_types=1);
 namespace CakephpPaymob\PaymentTypes;
 
 
-abstract class PaymentTypes{
+interface PaymentTypes{
+
+    static function hasIframe();
+
+    static function generateIframe($token);
+
+    
     
 }

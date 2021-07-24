@@ -35,7 +35,10 @@ Or, you can load the plugin using the shell command
 
 return [
     'CakephpPaymob' => [
-        'apiKey' => '{your-api-key-here-from-your-account}'
+        'apiKey' => '{your-api-key-here-from-your-account}',
+        'card_integration_id' => 'card_integration_id', //https://accept.paymob.com/portal2/en/PaymentIntegrations
+        'mobile_wallet_integration_id' => 'mobile_wallet_integration_id', //https://accept.paymob.com/portal2/en/PaymentIntegrations
+
     ]
 ];
 
@@ -111,38 +114,44 @@ $orderData = [
 
  $order = $client->OrderRegistrationAPI($orderData);
 
-  $PaymentKey = $client->PaymentKeyRequest([
-      'amount_cents' => 150 * 100,//put your price
-      'currency' => 'EGP',
-      'order_id' => $order->id, 
-      "billing_data" => [ // put your client information
-          "apartment" => "803",
-          "email" => "claudette09@exa.com",
-          "floor" => "42",
-          "first_name" => "Clifford",
-          "street" => "Ethan Land",
-          "building" => "8028",
-          "phone_number" => "+86(8)9135210487",
-          "shipping_method" => "PKG",
-          "postal_code" => "01898",
-          "city" => "Jaskolskiburgh",
-          "country" => "CR",
-          "last_name" => "Nicolas",
-          "state" => "Utah"
-      ]
-    ]);
+
+```
+### Card Payment
+
+```php
+
+use CakephpPaymob\PaymentTypes\Card;
+
+ $card = new Card();
+        $PaymentKey =  $card->PaymentKeyRequest([
+            'amount_cents' => 150 * 100, //put your price
+            'currency' => 'EGP',
+            'order_id' => $order['id'],// From steps before
+            "billing_data" => [ // put your client information
+                "apartment" => "803",
+                "email" => "claudette09@exa.com",
+                "floor" => "42",
+                "first_name" => "Clifford",
+                "street" => "Ethan Land",
+                "building" => "8028",
+                "phone_number" => "+86(8)9135210487",
+                "shipping_method" => "PKG",
+                "postal_code" => "01898",
+                "city" => "Jaskolskiburgh",
+                "country" => "CR",
+                "last_name" => "Nicolas",
+                "state" => "Utah"
+            ]
+        ]);
+
+
+        $iFrame = $PaymentKey['iFrame'];
 
 
 ```
-
 
 
 #### finally create view and use your iframe like this ( Card Payment)
-
-```html
-  <iframe width="100%" height="800" src="https://accept.paymob.com/api/acceptance/iframes/{{your_frame_id_here}}?payment_token=<?= $PaymentKey->token // from step 5 ?>">
- 
-```
 
 ####card information testing
 Card number : 4987654321098769
@@ -151,5 +160,13 @@ Expiry Month : 05
 Expiry year : 21
 CVV : 123
 
-### TODO
-#### Walet payment
+```html
+  <iframe width="100%" height="800" src="https://accept.paymob.com/api/acceptance/iframes/{{your_frame_id_here}}?payment_token=<?= $PaymentKey->token // from steps ?>"> 
+  <!-- https://accept.paymob.com/portal2/en/iframes -->
+ 
+```
+
+### Walet payment
+
+In progress
+
