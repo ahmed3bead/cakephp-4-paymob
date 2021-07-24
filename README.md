@@ -140,10 +140,10 @@ use CakephpPaymob\PaymentTypes\Card;
 #### finally create view and use your iframe like this ( Card Payment)
 
 ### card information testing
-Card number : 4987654321098769
-Cardholder Name : Test Account
-Expiry Month : 05
-Expiry year : 21
+Card number : 4987654321098769\
+Cardholder Name : Test Account\
+Expiry Month : 05\
+Expiry year : 21\
 CVV : 123
 
 ```html
