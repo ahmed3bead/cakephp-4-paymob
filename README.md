@@ -1,4 +1,5 @@
-# cakephp-4-paymob
+# CAKEPHP 4 Paymob
+
 # paymob
 paymob payment gateway https://paymob.com
 
@@ -150,7 +151,6 @@ use CakephpPaymob\PaymentTypes\Card;
 
 ```
 
-
 #### finally create view and use your iframe like this ( Card Payment)
 
 ####card information testing
@@ -169,4 +169,19 @@ CVV : 123
 ### Walet payment
 
 In progress
+=======
+
+
+
+### TODO
+#### Mobile Wallets
+#### Kiosk Payments
+#### ValU
+#### Cash Collection
+#### Bank Installments
+#### Premium Card Payments
+#### SOUHOOLA Payments
+#### GET_GO Payments
+
+
 
