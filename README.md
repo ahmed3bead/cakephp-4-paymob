@@ -161,13 +161,8 @@ In progress
 
 ### TODO
 #### Mobile Wallets
-#### Kiosk Payments
-#### ValU
 #### Cash Collection
-#### Bank Installments
-#### Premium Card Payments
-#### SOUHOOLA Payments
-#### GET_GO Payments
+
 
 
 
