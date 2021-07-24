@@ -67,12 +67,21 @@ Init new client
 
  $client = new CakephpPaymob();
 
+```
+
+#### step 3 :
+
+
+Order Registration
+
+```php
+
 $orderData = [
-   "delivery_needed" => "false", 
-   "amount_cents" => "100", // price * 100 
-   "currency" => "EGP", 
+   "delivery_needed" => "false",  // Required -- Set it to be true if your order needs to be delivered by Accept's product delivery services.
+   "amount_cents" => 100, // price * 100  Required
+   "currency" => "EGP", // Required
    "merchant_order_id" => 5, 
-   "items" => [
+   "items" => [// Required
          [
             "name" => "ASC1515", 
             "amount_cents" => "500000", 
@@ -86,37 +95,15 @@ $orderData = [
                "quantity" => "1" 
             ] 
       ], 
-   "shipping_data" => [
-                  "apartment" => "803", 
-                  "email" => "claudette09@exa.com", 
-                  "floor" => "42", 
-                  "first_name" => "Clifford", 
-                  "street" => "Ethan Land", 
-                  "building" => "8028", 
-                  "phone_number" => "+86(8)9135210487", 
-                  "postal_code" => "01898", 
-                  "extra_description" => "8 Ram , 128 Giga", 
-                  "city" => "Jaskolskiburgh", 
-                  "country" => "CR", 
-                  "last_name" => "Nicolas", 
-                  "state" => "Utah" 
-               ], 
-   "shipping_details" => [
-                     "notes" => " test", 
-                     "number_of_packages" => 1, 
-                     "weight" => 1, 
-                     "weight_unit" => "Kilogram", 
-                     "length" => 1, 
-                     "width" => 1, 
-                     "height" => 1, 
-                     "contents" => "product of some sorts" 
-                  ] 
+
 ]; 
 
  $order = $client->OrderRegistrationAPI($orderData);
 
 
 ```
+
+
 ### Card Payment
 
 ```php
@@ -127,7 +114,7 @@ use CakephpPaymob\PaymentTypes\Card;
         $PaymentKey =  $card->PaymentKeyRequest([
             'amount_cents' => 150 * 100, //put your price
             'currency' => 'EGP',
-            'order_id' => $order['id'],// From steps before
+            'order_id' => $order['id'],// From step 3 before
             "billing_data" => [ // put your client information
                 "apartment" => "803",
                 "email" => "claudette09@exa.com",
@@ -145,11 +132,14 @@ use CakephpPaymob\PaymentTypes\Card;
             ]
         ]);
 
+        $this->set('PaymentKey',$PaymentKey);
+
+
 ```
 
 #### finally create view and use your iframe like this ( Card Payment)
 
-####card information testing
+### card information testing
 Card number : 4987654321098769
 Cardholder Name : Test Account
 Expiry Month : 05
@@ -157,7 +147,7 @@ Expiry year : 21
 CVV : 123
 
 ```html
-  <iframe width="100%" height="800" src="https://accept.paymob.com/api/acceptance/iframes/{{your_frame_id_here}}?payment_token=<?= $PaymentKey->token // from steps ?>"> 
+  <iframe width="100%" height="800" src="https://accept.paymob.com/api/acceptance/iframes/{{your_frame_id_here}}?payment_token=<?= $PaymentKey // from steps ?>"> 
   <!-- https://accept.paymob.com/portal2/en/iframes -->
  
 ```

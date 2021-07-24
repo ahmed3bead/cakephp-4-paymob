@@ -8,7 +8,6 @@ interface PaymentTypes{
 
     static function hasIframe();
 
-    static function generateIframe($token);
 
     
     

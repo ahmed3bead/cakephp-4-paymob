@@ -31,8 +31,5 @@ class MobileWallet extends CakephpPaymob implements PaymentTypes
         return false;
     }
 
-    static function generateIframe($token)
-    {
-        # code...
-    }
+   
 }

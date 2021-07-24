@@ -40,22 +40,7 @@ class Card extends CakephpPaymob implements PaymentTypes
 
 
         if (isset($res->token)) {
-            if (self::hasIframe()) {
-                return self::generateIframe($res->token);
-            }
+            return $res->token;
         }
-
-        
-
-        return "https://accept.paymob.com/api/acceptance/iframes/{{your_iframe_id}}?payment_token={{payment_token_obtained_from_step_3}}";
-
-        dd($res);
-    }
-
-
-    static function generateIframe($token)
-    {
-        
-        dd("https://accept.paymob.com/api/acceptance/iframes/{{your_iframe_id}}?payment_token={{payment_token_obtained_from_step_3}}");
     }
 }
