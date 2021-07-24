@@ -152,12 +152,6 @@ CVV : 123
  
 ```
 
-### Walet payment
-
-In progress
-=======
-
-
 
 ### TODO
 #### Mobile Wallets
