@@ -145,10 +145,6 @@ use CakephpPaymob\PaymentTypes\Card;
             ]
         ]);
 
-
-        $iFrame = $PaymentKey['iFrame'];
-
-
 ```
 
 #### finally create view and use your iframe like this ( Card Payment)
